@@ -12,6 +12,12 @@ namespace MinimalApiBlog.Api.Extensions
         public static IServiceCollection AddApplicationServices(this IServiceCollection services,
             WebApplicationBuilder builder)
         {
+
+            if (builder == null)
+            {
+                throw new ArgumentNullException(nameof(builder));
+            }
+
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen(options =>
             {
